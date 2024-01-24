@@ -7,10 +7,9 @@
 <!-- HEADER -->
 
 <main>
-
+<div>
 <p>안녕하세요</p>
-grrrrrrraaaa
-</main>
+
 
 <!-- Footer -->
 <!-- Footer -->
