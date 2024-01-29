@@ -16,10 +16,11 @@
 							</tr>
 						</thead>
 						<tbody>
-
-							<c:forEach var="list" items="${answer}">
+							<c:set var="total" value="${answer.size() }"></c:set>
+        					 <c:forEach var="list" items="${answer}" varStatus="status">
+							
 								<tr>
-									<td><a href="macro_detail.hm?macro_no=${list.macro_no}">${list.macro_no}</a></td>
+									<td><a href="macro_detail.hm?macro_no=${list.macro_no}">${total-status.index-1 }</a></td>
 									<td><a href="macro_detail.hm?macro_no=${list.macro_no}">${list.macro_content}</a></td>
 									<td>${list.macro_update}</td>
 								</tr>

@@ -147,6 +147,10 @@ public class BoardServiceImpl implements BoardService {
 	}// 매크로 답변 디테일
 	
 	@Override
+	public int macroCount(){
+		return dao.macroCount();
+	}
+	@Override
 	public int macroWrite(MacroDto mdto){
 		return dao.macroWrite(mdto);
 	}// 매크로 답변 리스트 추가

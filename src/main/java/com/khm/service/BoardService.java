@@ -24,6 +24,7 @@ public interface BoardService {
 	public List<BoardVoDto> myQueList(BoardDto bdto);// 내 문의내역
 	public List<MacroDto> macroAnswer();// 내 문의내역
 	public List<BoardDto> noticeList();// 공지사항 리스트
+	public int macroCount();// 공지사항 리스트
 	
 	
 	//관리자

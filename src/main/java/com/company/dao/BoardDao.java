@@ -37,7 +37,7 @@ public interface BoardDao {
 	public int noticeUpdate_1(BoardDto bdto);// 공지사항 글 수정
 	public int noticeUpdate_2(BoardRootDto bdto);// 공지사항 글 수정
 	*/
-	
+	public int macroCount();
 	
 	public int noticeWrite_1(BoardVoDto bvodto);// 공지사항 글 쓰기
 	public int noticeWrite_2(BoardVoDto bvodto);// 공지사항 글 쓰기

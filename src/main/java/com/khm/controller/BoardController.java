@@ -254,6 +254,53 @@ public class BoardController {
 		}
 	}
 	
+	@RequestMapping(value="/edit_macro.hm", method = RequestMethod.GET)
+	public String edit_macro(Model model,MacroDto dto) {
+		
+		model.addAttribute("macroDetail",service.macroDetail(dto));
+		
+		return "edit_macro";
+	}
+	
+	@RequestMapping(value="/edit_macro.hm", method = RequestMethod.POST)
+	public void edit_macro_true(Model model,MacroDto dto,HttpServletRequest request,HttpServletResponse response) throws IOException {
+	
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out=response.getWriter();
+
+		if(service.macroUpdate(dto)>0) {
+			out.print("<script>alert('매크로 수정 성공'); location.href='home.hm';</script>");
+		}
+		else {
+			out.print("<script>alert('매크로 실패');history.go(-1);</script>");
+		}
+	}
+	
+	
+	
+	@RequestMapping(value="/write_macro.hm", method = RequestMethod.GET)
+	public String write_macro(Model model,MacroDto dto) {
+		model.addAttribute("macroCount",service.macroCount());
+		return "write_macro";
+	}
+	
+	@RequestMapping(value="/write_macro.hm", method = RequestMethod.POST)
+	public void macroWrite(Model model,MacroDto dto,HttpServletRequest request,HttpServletResponse response) throws IOException {
+	
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out=response.getWriter();
+
+		if(service.macroWrite(dto)>0) {
+			out.print("<script>alert('매크로 추가 성공'); location.href='home.hm';</script>");
+		}
+		else {
+			out.print("<script>alert('매크로 실패');history.go(-1);</script>");
+		}
+	}
 	
 	
 }

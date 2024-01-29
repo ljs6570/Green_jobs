@@ -156,6 +156,13 @@
   <select id="macroDetail"  resultType="MacroDto" parameterType="MacroDto">	<!-- 매크로 답변 디테일 -->
   		select macro_no,macro_content from macro where macro_no=#{macro_no}
   </select>
+  
+  <select id="macroCount"  resultType="int" >	<!-- 매크로 답변 디테일 -->
+  		select count(macro_no) 'count' from macro;
+  </select>
+  
+  
+  
     <select id="macroAnswer"  resultType="MacroDto" parameterType="MacroDto">	<!-- 매크로 답변 디테일 -->
   		select macro_no,macro_content from macro
   </select>
