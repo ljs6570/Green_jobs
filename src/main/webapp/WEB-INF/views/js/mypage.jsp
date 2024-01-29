@@ -74,7 +74,7 @@
 
 		<div class="box">
 			<div class="pull" style="height: 80px;">
-				안녕하세요! 사용자님 <br> 오늘도 feel in like를 방문해주셔서 감사합니다😊
+				안녕하세요! ${login.user_name }님, <br> 오늘도 feel in like를 방문해주셔서 감사합니다😊
 			</div>
 		</div>
 

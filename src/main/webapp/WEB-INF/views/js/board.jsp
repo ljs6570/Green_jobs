@@ -9,7 +9,6 @@
 <main>
 <div>
 <p>안녕하세요</p>
-<p>dev-master</p>
 </div>
 </main>
 

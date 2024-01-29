@@ -31,7 +31,7 @@ public class Test001 {
 		System.out.println(context);
 	}
 
-	@Test  
+	@Test  @Ignore
 	public void test1() {
 		   UserVoDto vodto = new UserVoDto();
 		   vodto.setUser_no(1000);
@@ -40,5 +40,22 @@ public class Test001 {
 	        System.out.println("!!!!!!!!!!!"+vodto.getGroup_no());
 	        System.out.println("@@@@@@"+service.contentList(vodto));
 	}
-
+	
+	@Test
+	public void test2() {
+		//System.out.println(service.select_admin());
+		//System.out.println(service.readAll());
+		UserDto dto=new UserDto();
+		//dto.setUser_email("test22@naver.com");
+		//System.out.println(service.admin_plus(dto));
+		dto.setUser_email("admin@gmail.com");
+		dto.setUser_pass("a456");
+		if(
+		service.loginUser(dto)!=null) {
+			System.out.println("성공");
+		}else {
+			System.out.println("실패");
+			
+		}
+	}
 }

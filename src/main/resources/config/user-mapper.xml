@@ -57,7 +57,7 @@
 	</update>
 	<update id="update_adminplus" parameterType="UserDto">
 		update user set
-		grade_no=2 where user_email=? and user_pass;
+		grade_no=2 where user_email=#{user_email};
 	</update>
 	<update id="update_admindelete" parameterType="UserDto">
 		update user set

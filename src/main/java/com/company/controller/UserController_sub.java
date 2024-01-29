@@ -1,15 +1,9 @@
 package com.company.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,14 +19,14 @@ import com.company.dto.UserDto;
 import com.company.service.UserService;
 
 @Controller
-public class UserController {
-
+public class UserController_sub {
+	/*
 	@Autowired
 	UserService service;
 
 	@GetMapping("/home.js")
 	public String home() {
-		return "start";
+		return "board";
 	}
 
 	@GetMapping("/login.js")
@@ -52,25 +46,10 @@ public class UserController {
 
 	}
 
-	/*
-	  @PostMapping(value = "/login_match.js", produces =
-	  "application/json;charset=UTF-8")
-	  
-	  @ResponseBody public Map<String, String> login_match(UserDto dto){
-	  System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+dto.
-	  getUser_email());
-	  System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+dto.
-	  getUser_pass()); Map<String, String> result=new HashMap<>();
-	  
-	  if(service.loginUser(dto) == null) { result.put("result", "abcdefg");
-	 System.out.println(result); };
-	  
-	  return result; }
-	 */
 	@GetMapping("/logout.js")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "start";
+		return "board";
 	}
 
 	@RequestMapping(value = "/mypage.js", method = { RequestMethod.GET, RequestMethod.POST })
@@ -88,6 +67,7 @@ public class UserController {
 	@RequestMapping(value = "/mypage_edit.js", method = RequestMethod.POST)
 	public String mypage_edit(Model model, UserDto dto) {
 		service.update_user(dto);
+		// model.addAttribute("myinfo", service.select_user(dto));
 		return "redirect:/mypage.js?user_no=" + dto.getUser_no();
 	}
 
@@ -113,47 +93,42 @@ public class UserController {
 
 		return "login";
 	}
-	
-	@GetMapping("adminpage_list.js")
-	public String adminpage_list_view(Model model) {
-		model.addAttribute("list", service.readAll());
-		model.addAttribute("admin_list", service.select_admin());
-		return "adminpage_list";
-	}
-
-	/*
-	 * @RequestMapping(value = "ex_adminpage_list.js", // produces =
-	 * "application/json", headers = { "Content-type=application/json" }, method = {
-	 * RequestMethod.GET, RequestMethod.POST })
-	 * 
-	 * @ResponseBody public Map<String, Object> readAll() { Map<String, Object>
-	 * result = new HashMap<>(); result.put("result", service.select_admin());
-	 * return result; }
-	 */
-
-	@GetMapping("admin_plus.js")
-	
+	@PostMapping("admin_plus.js")
 	public String admin_plus(UserDto dto) {
 		service.admin_plus(dto);
+		
 		return "redirect:/adminpage_list.js";
 	}
 
-	@RequestMapping(value = "ex_admin_plus.js",
-			headers = { "Content-type=application/json" }, method = { RequestMethod.GET, RequestMethod.POST })
-	@ResponseBody
-	public Map<String, Object> ex_admin_plus(String user_email) {
-		// System.out.println("............" + user_email);
-		UserDto dto = new UserDto();
-		dto.setUser_email(user_email);
-		// System.out.println("............" + dto);
-		Map<String, Object> result = new HashMap<>();
-		int process = service.admin_plus(dto);
-		result.put("result", service.admin_plus(dto));
-
-		System.out.println("............process >>>>>>>>>>" + process);
-		return result;
+	@GetMapping("adminpage_list.js")
+	public String adminpage_list_view(Model model) {
+		//model.addAttribute("list", service.readAll());
+		//model.addAttribute("admin_list", service.select_admin());
+		return "adminpage_list_default";
 	}
 
+
+	@RequestMapping(value = "ex_adminpage_list.js",
+			// produces = "application/json",
+			headers = { "Content-type=application/json" }, method = { RequestMethod.GET, RequestMethod.POST })
+	@ResponseBody
+	public Map<String, Object> readAll() {
+		Map<String, Object> result = new HashMap<>();
+		result.put("result", service.select_admin());
+		return result;
+	}
+ 
+	@RequestMapping(value = "ex_admin_plus.js",
+			method = { RequestMethod.GET, RequestMethod.POST }) 
+	@ResponseBody
+	public int ex_admin_plus(String user_email) {
+		
+		UserDto dto = new UserDto();
+		dto.setUser_email(user_email);
+		
+		return service.admin_plus(dto); 
+	}
+	/*
 	@GetMapping("admin_delete.js")
 	public String admin_delete(UserDto dto) {
 		service.admin_delete(dto);
@@ -199,5 +174,11 @@ public class UserController {
 	public String delete_user(UserDto dto) {
 		service.delete_user(dto);
 		return "redirect:/adminpage_list.js";
-	}  
+	}
+	
+	
+	*/
+
+
+	
 }

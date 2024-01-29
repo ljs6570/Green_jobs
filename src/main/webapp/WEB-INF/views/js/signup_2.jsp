@@ -16,7 +16,11 @@
 	border-radius: 8px;
 	font-family: 'GmarketSansMedium';
 }
-
+#pwcheck{
+	color: crimson;
+    font-size: 10px;
+    text-align: right;
+}
 </style>
 
 <div>
@@ -31,11 +35,9 @@
 
 <!-- wrapper -->
 <div id="wrapper">
-	<form method="post" action="signinsert.js" name="join">
-		<!-- content-->
+	<form method="post" action="signinsert.js" name="join" id="sign2">
+	<fieldset style="border: none;">
 		<div id="content">
-
-			<!-- 이메일 -->
 			<div class="email">
 				<h3 class="join_title">
 					<label for="newid">아이디</label> <strong class="required">*</strong>
@@ -44,10 +46,8 @@
 					value="${param.user_email }" name="user_email" class="field"
 					placeholder="이메일을 입력해주세요">
 				</span>
-
 			</div>
 
-			<!-- 인증코드 -->
 			<div class="number">
 				<div class="btn_area_s">
 					<h3 class="join_title">
@@ -55,11 +55,10 @@
 					</h3>
 				</div>
 				<span class="box int_id"> <input type="text" id="signCode"
-					name="code" class="field" value="${param.code }">
+					name="code" class="field" value="${param.code } " readonly>
 				</span>
 			</div>
-
-			<!-- 비밀번호 -->
+			
 			<div class="password">
 				<h3 class="join_title">
 					<label for="newpw">비밀번호</label> <strong class="required">*</strong>
@@ -70,18 +69,17 @@
 				</span> <span class="error_next_box"></span>
 			</div>
 
-			<!-- 비밀번호 -->
 			<div class="password_check">
 				<h3 class="join_title">
 					<label for="newpw_check">비밀번호 재확인</label>
+					<p id="pwcheck"></p>
 				</h3>
 				<span class="box int_pass_check"> <input type="password"
 					id="newpw_check" name="user_passcheck" class="field"
-					value="${param.user_passcheck }" placeholder="">
+					value="${param.user_pass}" placeholder="">
 				</span> <span class="error_next_box"></span>
 			</div>
 
-			<!-- 이름 -->
 			<div class="name">
 				<h3 class="join_title">
 					<label for="newname">이름</label> <strong class="required">*</strong>
@@ -91,7 +89,7 @@
 					placeholder="">
 				</span> <span class="error_next_box"></span>
 			</div>
-			<!-- 휴대번호 -->
+
 			<div class="phone">
 				<h3 class="join_title">
 					<label for="newphone">휴대전화</label> <strong class="required">*</strong>
@@ -101,17 +99,17 @@
 					pattern="^[0-9]+$" placeholder="'-' 빼고 입력해주세요">
 				</span>
 			</div>
-			<!-- 생년월일 -->
+
 			<div class="name">
 				<h3 class="join_title">
 					<label for="newbirth">생년월일</label> <strong class="required">*</strong>
 				</h3>
-				<span class="box int_name"> <input type="text" id="newbirth"
+				<span class="box int_name"> <input type="date" id="newbirth"
 					name="user_birth" class="field" value="${param.user_birth }"
 					placeholder="ex) 19940604">
 				</span>
 			</div>
-			<!-- 성별 -->
+
 			<div id="sign_sex">
 				<div id="sex_title">
 					<h3 class="join_title">
@@ -138,14 +136,21 @@
 				</c:if>
 			</div>
 
-
-			<!-- 회원가입 버튼-->
 			<div class="btn_area">
 				<input type="submit" id="btnJoin" value="가입하기">
 			</div>
 		</div>
+			</fieldset>
 	</form>
 </div>
+<script>
+	$(function() {
+
+		$("#sign2").on("submit", function(){
+			alert("환영합니다!");
+		});
+	});
+</script>
     
 
 </body>

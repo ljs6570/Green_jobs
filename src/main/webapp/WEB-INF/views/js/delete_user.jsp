@@ -39,7 +39,7 @@ font-size:17px;
     padding: 35px;
     margin: 20px 0px;
     line-height: 0.5em;
-    overflow:auto;
+    
 }
 input[type="submit"]{
 	width: 55px;
@@ -79,17 +79,17 @@ input[type="submit"]{
         </div>
 
         <div>
-            <form action="delete_user.js?user_no=${login.user_no }" method="post">
+            <form action="delete_user.js?user_no=${login.user_no }" method="post" id="deleteuser">
                 <fieldset>
                     <legend>회원탈퇴</legend>
                     <div class="delete_check">
 	                    <div class="flex">
-	                        <input type="checkbox" id="delete_user_1" name="delete_user">
-	                        <label for="delete_user_1">탈퇴후 개인의 데이터를 복구할 수 없으며, FIL서비스에 남아있는 게시글을 삭제할 수 없습니다.</label>
+	                        <input type="checkbox" id="delete_user1" name="delete_user">
+	                        <label for="delete_user1">탈퇴후 개인의 데이터를 복구할 수 없으며, FIL서비스에 남아있는 게시글을 삭제할 수 없습니다.</label>
 	                    </div>
 	                    <div class="flex">
-	                        <input type="checkbox" id="delete_user_2" name="delete_user">
-	                        <label for="delete_user_2">위 안내사항을 모두 확인했습니다.</label>
+	                        <input type="checkbox" id="delete_user2" name="delete_user">
+	                        <label for="delete_user2">위 안내사항을 모두 확인했습니다.</label>
 	                    </div>
                     </div>
                     <div>
@@ -98,7 +98,17 @@ input[type="submit"]{
                     </div>
                 </fieldset>
             </form>
+           <script>
+           $(function(){
+        	   $("#deleteuser").on("submit", function(){
+        		   if(!($("#delete_user1").prop("checked"))||!($("#delete_user2").prop("checked"))){
+        			   alert("체크 확인 해주세요");
+        			   return false
+        		   };
+        	   });
+       	});
            
+           </script>
         </div>
       </div>
 <%@ include file="../inc/footer.jsp"%>

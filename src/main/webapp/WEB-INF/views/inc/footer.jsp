@@ -30,7 +30,6 @@
 		</div>
 	</div>
 			
-	<script src="${pageContext.request.contextPath}/js/header.js"></script>
 
 </body>
 

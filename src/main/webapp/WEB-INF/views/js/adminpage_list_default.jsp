@@ -10,7 +10,7 @@
 	padding: 125px;
 }
 
-#btnfont1 a, #btnfont2 a{
+#btnfont a {
 	color: white !important;
 	font-weight: bold;
 }
@@ -19,7 +19,6 @@
 	overflow: auto;
 	border: 1px solid #eee;
 	margin: 10px;
-	height: 290px;
 }
 
 #adminPlus, #adminPlus_next {
@@ -79,7 +78,9 @@
 </style>
 
 <script>
-	$(function() {		
+	$(function() {
+		readAll(); 
+		
 		$("#adminPlus").hide();
 		$("#adminPlus_next").hide();
 		$("#opnPlus").on("click", function() {
@@ -93,20 +94,56 @@
 			$("#adminPlus").hide();
 			$("#adminPlus_next").hide();
 		})
-		$("#btnfont1").on("click", function(){
-		let confirmed = confirm("해지하시겠습니까?");
-			if(!confirmed){
-				return false;
-			}
-		});
-		$("#btnfont2").on("click", function(){
-		let confirmed = confirm("해지하시겠습니까?");
-			if(!confirmed){
-				return false;
-			}
-		});
 		
 	});//end
+	
+	 function readAll(){
+		
+		$.ajax({
+			url : "ex_adminpage_list.js",
+			type : "GET",
+			dataType:"json",
+			error:function(xhr,status,msg){
+				alert(status+"/"+msg);
+			},
+			success: function(json){
+					console.log(json.result);
+					console.log("23123123");
+			 	 	$(".adminList tbody").empty();
+		 			$.each(json.result, function(idx,user){
+					$("<tr>")
+					.append($("<td>").html(user.user_no))
+					.append($("<td>").html(user.user_name))
+					.append($("<td>").html(user.user_email))
+					.append($("<td>").html(user.grade_name))
+					.append($("<td>").html(user.user_date))
+					.appendTo(".adminList tbody");
+				});  
+			}
+		});
+	}  
+	
+ 	function admin_plus(){
+		$.ajax({
+			url:"ex_admin_plus.js",
+			type:"POST",
+			dataType:"json",
+			data:{"user_email":$("#user_email").val()},
+			error:function(xhr, status, msg){
+				alert(status+"/"+msg);
+				console.log(status+"/"+msg);
+			},
+			success:function(json){
+				alert(json);
+				//readAll();
+				console.log(json);
+				$("#user_email").val(''); 
+			}
+			
+			
+		});	//aend
+	};//fend  
+	
 </script>
 <div class="main">
 	<div>
@@ -130,28 +167,29 @@
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach var="admin" items="${admin_list }" varStatus="status">
+				 <c:forEach var="admin" items="${admin_list }" varStatus="status">
 					<tr>
 						<td>${admin.user_no }</td>
 						<td>${admin.user_name }</td>
 						<td>${admin.user_email }</td>
 						<td>${admin.grade_name }</td>
 						<td>${admin.user_date }</td>
-						<td id="btnfont1"><a
+						<td id="btnfont"><a
 							href="admin_delete.js?user_no=${admin.user_no }" class="btn"
 							style="background-color: #FFC633BD;">해제하기</a></td>
 					</tr>
-				</c:forEach> 
+				</c:forEach>
 			</tbody>
+
 		</table>
-	</div>
 		<c:if test="${login.grade_no eq 1 }">
 			<div id="btnfont" class="text-right">
 				<input type="button" value="추가하기" id="opnPlus" class="btn">
 			</div>
 		</c:if>
+	</div>
 
- 	 <div class="tables">
+	 <div class="tables">
 		<table class="table table-bordered">
 			<caption>〈〈현재회원 LIST〉〉</caption>
 			<thead>
@@ -174,14 +212,14 @@
 						<td>${user.user_birth }</td>
 						<td>${user.user_mobile }</td>
 						<td>${user.user_date }</td>
-						<td id="btnfont2"><a
+						<td id="btnfont"><a
 							href="kill_user.js?user_no=${user.user_no }" class="btn"
 							style="background-color: #FF6666ED;">삭제하기</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-	</div>  
+	</div> 
 </div>
 
 <div id="adminPlus">
@@ -207,13 +245,8 @@
 	<script>
 	
 		$(function(){
-			$("#btnok1").on("click", function(){
-				alert("인증코드가 전송되었습니다.");
-						
-			});
-			
 			$("#btnok2").on("click", function(){
-				location.href="admin_plus.js?user_email="+$("#user_email").val();
+				admin_plus();
 			});
 		});
 	

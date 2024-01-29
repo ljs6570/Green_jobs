@@ -10,7 +10,7 @@
 	padding: 125px;
 }
 
-#btnfont1 a, #btnfont2 a{
+#btnfont a {
 	color: white !important;
 	font-weight: bold;
 }
@@ -19,7 +19,6 @@
 	overflow: auto;
 	border: 1px solid #eee;
 	margin: 10px;
-	height: 290px;
 }
 
 #adminPlus, #adminPlus_next {
@@ -79,7 +78,9 @@
 </style>
 
 <script>
-	$(function() {		
+	$(function() {
+		readAll(); 
+	 	
 		$("#adminPlus").hide();
 		$("#adminPlus_next").hide();
 		$("#opnPlus").on("click", function() {
@@ -92,22 +93,60 @@
 		$(".btncancel, #btnok2").on("click", function(){
 			$("#adminPlus").hide();
 			$("#adminPlus_next").hide();
-		})
-		$("#btnfont1").on("click", function(){
-		let confirmed = confirm("해지하시겠습니까?");
-			if(!confirmed){
-				return false;
-			}
-		});
-		$("#btnfont2").on("click", function(){
-		let confirmed = confirm("해지하시겠습니까?");
-			if(!confirmed){
-				return false;
-			}
-		});
+		}) 
 		
 	});//end
+	
+	 function readAll(){
+		
+		$.ajax({
+			url : "ex_adminpage_list.js",
+			type : "GET",
+			dataType:"json",
+			error:function(xhr,status,msg){
+				alert(status+"/"+msg);
+			},
+			success: function(json){
+			 	 	$(".adminList tbody").empty();
+		 			$.each(json.result, function(idx,user){
+					$("<tr>")
+					.append($("<td>").html(user.user_no))
+					.append($("<td>").html(user.user_name))
+					.append($("<td>").html(user.user_email))
+					.append($("<td>").html(user.grade_name))
+					.append($("<td>").html(user.user_date))
+					.appendTo(".adminList tbody");
+				});  
+			}
+		});
+	}  
+	/*
+ 	function admin_plus(){
+ 		let user_email=$("#user_email").val();
+		$.ajax({
+			url:"ex_admin_plus.js",
+			type:"GET",
+			dataType:"json", 
+			contentType:"application/json",  
+			data : JSON.stringify({user_email:user_email}),
+			mimeType:"application/json",
+			error:function(xhr, status, msg){
+				alert(status+"/"+msg)
+				console.log(status+"/"+msg)
+				
+			},
+			success:function(json){
+				readAll();
+				console.log(json);
+				$("#user_email").val(''); 
+			}
+			
+			
+		});	//aend
+	};//fend  
+	*/
 </script>
+
 <div class="main">
 	<div>
 		<h4>관리자를 관리해보세요</h4>
@@ -130,28 +169,29 @@
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach var="admin" items="${admin_list }" varStatus="status">
+				 <%-- <c:forEach var="admin" items="${admin_list }" varStatus="status">
 					<tr>
 						<td>${admin.user_no }</td>
 						<td>${admin.user_name }</td>
 						<td>${admin.user_email }</td>
 						<td>${admin.grade_name }</td>
 						<td>${admin.user_date }</td>
-						<td id="btnfont1"><a
+						<td id="btnfont"><a
 							href="admin_delete.js?user_no=${admin.user_no }" class="btn"
 							style="background-color: #FFC633BD;">해제하기</a></td>
 					</tr>
-				</c:forEach> 
+				</c:forEach> --%>
 			</tbody>
+
 		</table>
-	</div>
 		<c:if test="${login.grade_no eq 1 }">
 			<div id="btnfont" class="text-right">
 				<input type="button" value="추가하기" id="opnPlus" class="btn">
 			</div>
 		</c:if>
+	</div>
 
- 	 <div class="tables">
+	 <%-- <div class="tables">
 		<table class="table table-bordered">
 			<caption>〈〈현재회원 LIST〉〉</caption>
 			<thead>
@@ -174,16 +214,63 @@
 						<td>${user.user_birth }</td>
 						<td>${user.user_mobile }</td>
 						<td>${user.user_date }</td>
-						<td id="btnfont2"><a
+						<td id="btnfont"><a
 							href="kill_user.js?user_no=${user.user_no }" class="btn"
 							style="background-color: #FF6666ED;">삭제하기</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-	</div>  
-</div>
+	</div>  --%>
+</div> 	
+	<!-- <div>
+   	<div class="form-group"> 
+	   		<label for="search">SEARCH</label>
+	   		<input type="text" name="search"   id="search"   class="form-control "/>
+	   	</div>
+	   	<script>
+	   	$(function(){
+	   		$("#search").on("keyup" , function(){
+	   		    if(	$("#search").val() == "" ){ 
+	   		    	$("#search").focus();
+	   		    	return false;
+	   		    }
+	   			$.ajax({
+	   				url:"${pageContext.request.contextPath}/milkReadAll" , 
+	   				type:"GET" , 
+	   				dataType: "json" , 
+					contentType: "application/json;charset=UTF-8", 
+	   				error:function(xhr, status, msg){ alert(status+"/" +msg);} , 
+	   				//success: function(json){  }
+	   				success:function(json){
+	   					console.log(json);
+	   					/*$(".milktable tbody").empty();
+	   					let  total = json.result.length;
+	   					
+	   					$.each(json.result  , function(idx, milk){
+	   						$("<tr>")
+	   						.append(  $("<td>").html(milk.mno) )
+	   						.append(  $("<td>").html(milk.mname) )
+	   						.append(  $("<td>").html(milk.mprice) )
+	   						.appendTo(".milktable tbody");
+	   					}); */
+	   				}
+	   			});
+	   		});
+	   	});
+	   	</script>
+	</div> -->
+<!-- 			 -->
+<!-- 			 -->
+<!-- 			 -->
 
+
+
+
+
+<!-- 			 -->
+<!-- 			 -->
+<!-- 			 -->
 <div id="adminPlus">
 	<div>
 		<h3>관리자 권한 주기 </h3>
@@ -207,13 +294,9 @@
 	<script>
 	
 		$(function(){
-			$("#btnok1").on("click", function(){
-				alert("인증코드가 전송되었습니다.");
-						
-			});
-			
 			$("#btnok2").on("click", function(){
-				location.href="admin_plus.js?user_email="+$("#user_email").val();
+				//admin_plus();
+				location.href="ex_admin_plus.js?user_email="+$("#user_email").val();
 			});
 		});
 	

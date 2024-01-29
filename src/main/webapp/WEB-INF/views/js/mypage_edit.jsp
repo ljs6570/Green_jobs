@@ -72,7 +72,7 @@
     font-family: 'GmarketSansMedium';
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
 	width: 200px;
 	height: 25px;
 	outline: none;
@@ -83,6 +83,11 @@ input[type=text] {
 
 input[type=radio] {
 	margin: 0px 38px;
+}
+#pwcheck{
+	color: crimson;
+    font-size: 10px;
+    text-align: right;
 }
 </style>
 <main style="font-weight:bold">
@@ -106,7 +111,7 @@ input[type=radio] {
 
 		<div id="account">
 			<h4 style="font-weight: bold;">내 정보</h4>
-			<form action="mypage_edit.js?user_no=${myinfo.user_no }" method="post">
+			<form action="mypage_edit.js?user_no=${myinfo.user_no }" method="post" id="myedit">
 			<fieldset>
 			<legend class="myhidden">정보수정</legend>
 			<div style="display: flex; align-items: baseline; margin: 10px;">
@@ -119,11 +124,12 @@ input[type=radio] {
 			</div>
 			<div class="title">
 			<label for="user_pass">비밀번호<strong class="required">*</strong></label>
-			<input type="text" id="user_pass" name="user_pass" style="margin-left:57px">
+			<input type="password" id="user_pass" name="user_pass" style="margin-left:57px">
 			</div>
 			<div class="title">
 			<label for="user_passcheck">비밀번호 재확인<strong class="required">*</strong></label>
-			<input type="text" id="user_passcheck" name="user_passcheck" style="margin-left:12px">
+			<input type="password" id="user_passcheck" name="user_passcheck" style="margin-left:12px">
+			<p id="pwcheck"></p>
 			</div>
 			<c:choose>
 			<c:when test="${myinfo.user_sex eq'm' }">
@@ -152,7 +158,7 @@ input[type=radio] {
 			</div>
 			<div class="title">
 			<label for="user_birth">생년월일 <strong class="required">*</strong></label>
-			<input type="text" id="user_birth" name="user_birth" value="${myinfo.user_birth }" style="margin-left:52px">
+			<input type="date" id="user_birth" name="user_birth" value="${myinfo.user_birth }" style="margin-left:52px">
 				
 			</div>
 
@@ -165,6 +171,27 @@ input[type=radio] {
 			</form>
 		</div>
 	</div>
+	<script>
+		$(function(){
+			let regpass = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]*$/;
+			let regmobile= /^010\d{4}\d{4}$/
+			$("#myedit").on("submit", function(){
+					if($("#user_pass").val() == "" || $("#user_passcheck").val()=="" || !(regpass.test($("#user_pass").val()))|| !(regpass.test($("#user_passcheck").val())))
+					{
+						alert("비밀번호를 확인해주세요!");
+						return false
+					}	
+					if(!($("#user_pass").val()==$("#user_passcheck").val())){
+						$("#pwcheck").text("비밀번호가 다릅니다.");
+						return false
+					}
+					if($("#user_mobile").val()==""||!(regmobile.test($("#user_mobile").val()))){
+						alert("휴대번호를 확인해주세요!");
+						return false
+					}
+			});
+		});
+	</script>
 </main>
 
 <!-- Footer -->
