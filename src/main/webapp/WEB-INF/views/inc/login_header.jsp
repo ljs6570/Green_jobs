@@ -28,6 +28,8 @@
 
 <link rel="shortcut icon" sizes="192x192"
 	href="${pageContext.request.contextPath}/resources/image/feel_logo.png" />
+<link rel="stylesheet"   href="${pageContext.request.contextPath}/resources/css/base.css"/>
+<link rel="stylesheet"   href="${pageContext.request.contextPath}/resources/css/home.css"/>
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 
@@ -45,11 +47,11 @@
 			</div>
 
 			<ul class="navbar_menu" style="margin-bottom: -5px">
-				<li class="highlight"><a href="today_content.feel">오늘의 콘텐츠</a></li>
+				<li class="highlight"><a href="#">오늘의 콘텐츠</a></li>
 				<li class="active">|</li>
-				<li class="highlight"><a href="customer_board.feel">고객 문의</a></li>
-				<li class="active">|</li>
-				<li class="highlight"><a href="more_info.feel">FIL 알아보기</a></li>
+				<li class="highlight"><a href="home.hm">고객 문의</a></li>
+				<!-- <li class="active">|</li>
+				<li class="highlight"><a href="more_info.feel">FIL 알아보기</a></li> -->
 			</ul>
 			<c:choose>
 				<c:when test="${login.grade_no eq 3}">
@@ -60,7 +62,7 @@
 						<ul class="dropdown-menu" style="left: -110px; color: black">
 							<li><a href="mypage.js?user_no=${login.user_no }">내 정보</a></li>
 							<li><a href="#">내 저장 콘텐츠</a></li>
-							<li><a href="#">내 문의 내역</a></li>
+							<li><a href="home.hm">내 문의 내역</a></li>
 							<li><a href="logout.js">로그아웃</a></li>
 						</ul>
 					</div>

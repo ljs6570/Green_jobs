@@ -63,4 +63,7 @@
 		update user set
 		grade_no=3 where user_no=#{user_no};
 	</update>
+	<delete id="delete_myconetent" parameterType="UserDto">
+		delete from board where user_no=(select user_no from user where user_email=#{user_email})
+	</delete>
 </mapper>

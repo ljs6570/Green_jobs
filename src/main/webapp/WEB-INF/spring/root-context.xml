@@ -10,7 +10,8 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.company.dao"></property>
+		<property name="basePackage"
+			value="com.company.dao"></property>
 		<property name="annotationClass"
 			value="com.company.dao.MyDao"></property>
 	</bean>
@@ -23,6 +24,7 @@
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:/config/user-mapper.xml</value>
+				<value>classpath:/config/board-mapper.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -34,7 +36,7 @@
 
 	<!-- HikariCp -->
 	<context:component-scan
-		base-package="com.company"></context:component-scan>
+		base-package="com.company, com.khm" />
 	<context:property-placeholder
 		location="classpath:/config/db.properties"></context:property-placeholder>
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">

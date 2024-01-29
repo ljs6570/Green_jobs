@@ -82,5 +82,10 @@ public class UserServiceImpl implements UserService {
 		return dao.select_admin();
 	}
 
+	@Override
+	public int delete_myconetent(UserDto dto) {
+		return dao.delete_myconetent(dto);
+	}
+
 	
 }

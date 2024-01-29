@@ -26,7 +26,7 @@ public class Test001 {
 
 	@Autowired
 	
-	@Test @Ignore 
+	@Test 
 	public void test0() {
 		System.out.println(context);
 	}
@@ -41,7 +41,7 @@ public class Test001 {
 	        System.out.println("@@@@@@"+service.contentList(vodto));
 	}
 	
-	@Test
+	@Test @Ignore
 	public void test2() {
 		//System.out.println(service.select_admin());
 		//System.out.println(service.readAll());
@@ -50,12 +50,6 @@ public class Test001 {
 		//System.out.println(service.admin_plus(dto));
 		dto.setUser_email("admin@gmail.com");
 		dto.setUser_pass("a456");
-		if(
-		service.loginUser(dto)!=null) {
-			System.out.println("성공");
-		}else {
-			System.out.println("실패");
-			
-		}
+		
 	}
 }

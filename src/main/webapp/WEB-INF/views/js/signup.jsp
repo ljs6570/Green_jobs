@@ -72,7 +72,7 @@
 						<label for="newpw">비밀번호</label> <strong class="required">*</strong>
 					</h3>
 					<span class="box int_pass"> <input type="password"
-						id="newpw" name="user_pass" class="field" placeholder="">
+						id="newpw" name="user_pass" class="field" placeholder="비밀번호는 영어와 숫자를 포함해주세요">
 						<span id="alertTxt">사용불가</span>
 					</span> <span class="error_next_box"></span>
 				</div>
@@ -84,7 +84,7 @@
 					</h3>
 					<span class="box int_pass_check"> <input type="password"
 						id="newpw_check" name="user_pass" class="field"
-						placeholder="">
+						placeholder="비밀번호는 영어와 숫자를 포함해주세요">
 					</span> <span class="error_next_box"></span>
 				</div>
 				<div class="name">

@@ -65,7 +65,7 @@
 				</h3>
 				<span class="box int_pass"> <input type="password" id="newpw"
 					name="user_pass" class="field" value="${param.user_pass }"
-					placeholder=""> <span id="alertTxt">사용불가</span>
+					placeholder="비밀번호는 영어와 숫자를 포함해주세요"> <span id="alertTxt">사용불가</span>
 				</span> <span class="error_next_box"></span>
 			</div>
 
@@ -76,7 +76,7 @@
 				</h3>
 				<span class="box int_pass_check"> <input type="password"
 					id="newpw_check" name="user_passcheck" class="field"
-					value="${param.user_pass}" placeholder="">
+					value="${param.user_pass}" placeholder="비밀번호는 영어와 숫자를 포함해주세요">
 				</span> <span class="error_next_box"></span>
 			</div>
 

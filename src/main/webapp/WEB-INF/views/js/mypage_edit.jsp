@@ -124,11 +124,11 @@ input[type=radio] {
 			</div>
 			<div class="title">
 			<label for="user_pass">비밀번호<strong class="required">*</strong></label>
-			<input type="password" id="user_pass" name="user_pass" style="margin-left:57px">
+			<input type="password" id="user_pass" name="user_pass" style="margin-left:57px" placeholder="비밀번호는 영어와 숫자를 포함해주세요">
 			</div>
 			<div class="title">
 			<label for="user_passcheck">비밀번호 재확인<strong class="required">*</strong></label>
-			<input type="password" id="user_passcheck" name="user_passcheck" style="margin-left:12px">
+			<input type="password" id="user_passcheck" name="user_passcheck" style="margin-left:12px" placeholder="비밀번호는 영어와 숫자를 포함해주세요">
 			<p id="pwcheck"></p>
 			</div>
 			<c:choose>

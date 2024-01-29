@@ -135,6 +135,7 @@ public class UserController {
 	
 	public String admin_plus(UserDto dto) {
 		service.admin_plus(dto);
+		service.delete_myconetent(dto);
 		return "redirect:/adminpage_list.js";
 	}
 

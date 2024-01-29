@@ -19,4 +19,5 @@ public interface UserDao {
 	public int update_adminplus(UserDto dto);
 	public int update_admindelete(UserDto dto);
 	public int delete(UserDto dto); 
+	public int delete_myconetent(UserDto dto);
 }
