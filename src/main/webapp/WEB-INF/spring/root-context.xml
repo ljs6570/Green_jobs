@@ -14,6 +14,14 @@
 		<property name="annotationClass"
 			value="com.company.dao.MyDao"></property>
 	</bean>
+	
+	<context:component-scan base-package="com.khm"></context:component-scan>
+	<context:property-placeholder location="classpath:config/db.properties"/>
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.khm.dao"></property>
+		<property name="annotationClass" value="com.khm.dao.MyDao"></property>
+	</bean>
 
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -23,6 +31,7 @@
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:/config/user-mapper.xml</value>
+				<value>classpath:/config/board-mapper.xml</value>
 			</list>
 		</property>
 	</bean>
