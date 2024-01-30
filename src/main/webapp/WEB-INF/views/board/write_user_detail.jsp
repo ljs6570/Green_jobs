@@ -34,6 +34,7 @@
         <p>${queDetail.macro_content}</p>
       </div> 
     </div>	
+<<<<<<< HEAD
     <c:if test="${login.grade_no eq 3}">			
     <div class="text-right"    >
        <a href="${pageContext.request.contextPath}/edit_user.hm?board_no=${queDetail.board_no}"  class="btn btn-danger" >수정</a> 
@@ -42,5 +43,13 @@
        <a href="${pageContext.request.contextPath}/home.hm"  class="btn btn-info" >목록보기</a> 
     </div>
     </c:if>						 
+=======
+    <div class="text-right"    >
+       <a href="${pageContext.request.contextPath}/edit_user.hm?board_no=${queDetail.board_no}"  class="btn btn-danger" >수정</a> 
+       <a href="${pageContext.request.contextPath}/delete_u.hm?board_no=${queDetail.board_no}"  class="btn btn-danger" >삭제</a>    
+       <!-- <a href="javascript:window.history.back();"  class="btn btn-info" >목록보기</a>  -->
+       <a href="${pageContext.request.contextPath}/home.hm"  class="btn btn-info" >목록보기</a> 
+    </div>						 
+>>>>>>> branch 'HM' of https://github.com/ljs6570/Green_jobs.git
   </div>	
 <%@ include  file="../inc/footer.jsp" %>

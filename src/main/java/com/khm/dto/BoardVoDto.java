@@ -11,7 +11,10 @@ public class BoardVoDto {
 	private int board_hit;
 	private Boolean board_open;	
 	private int status_no;
+<<<<<<< HEAD
 	private int macro_no;
+=======
+>>>>>>> branch 'HM' of https://github.com/ljs6570/Green_jobs.git
     private String user_name;
     private String macro_content;
     

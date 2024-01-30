@@ -4,7 +4,11 @@
 
 <div class="container">
   <div> <!-- 글작성 start -->
+<<<<<<< HEAD
     <form action="${pageContext.request.contextPath}/write_user.hm?user_no=${login.user_no}" method="post"><!-- ${login.user_no} -->
+=======
+    <form action="${pageContext.request.contextPath}/write_user.hm" method="post"><!-- ${login.user_no} -->
+>>>>>>> branch 'HM' of https://github.com/ljs6570/Green_jobs.git
       <fieldset>
         <legend>게시글을 작성해주세요!</legend>
 

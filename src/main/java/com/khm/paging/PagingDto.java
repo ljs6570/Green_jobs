@@ -18,6 +18,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Component
 public class PagingDto {
+<<<<<<< HEAD
 	private int listtotal;		//1. �쟾泥닿�
 	private int onepagelimit;	//2. �븳�럹�씠吏��뿉 蹂댁뿬以� 寃뚯떆臾쇱쓽 �닔
 	private int pagetotal;		//3. 珥앺럹�씠吏� 怨꾩궛	�쟾泥닿�/ �븳�럹�씠吏��뿉 蹂댁뿬以� 寃뚯떆臾쇱쓽 �닔
@@ -33,6 +34,23 @@ public class PagingDto {
 		super();
 		this.listtotal = listtotal;	// �쟾泥닿�
 		this.onepagelimit = 10;	// �븳�럹�씠吏��뿉 蹂댁뿬以� 寃뚯떆臾쇱쓽 �닔
+=======
+	private int listtotal;		//1. 전체글
+	private int onepagelimit;	//2. 한페이지에 보여줄 게시물의 수
+	private int pagetotal;		//3. 총페이지 계산	전체글/ 한페이지에 보여줄 게시물의 수
+	private int bottomlimit;	//4. 하단에 페이지 나누기 수
+	private int pstartno;		//5. 페이지의 스타트 번호
+	private int current ;		//6. 하단 현재번호
+	private int start ;			//7. 하단 시작
+	private int end ;			//8. 하단 끝
+	
+	//private List<Object> list; -선택사항
+
+	public PagingDto(int listtotal, int pstartno) {
+		super();
+		this.listtotal = listtotal;	// 전체글
+		this.onepagelimit = 10;	// 한페이지에 보여줄 게시물의 수
+>>>>>>> branch 'HM' of https://github.com/ljs6570/Green_jobs.git
 		this.pagetotal = (int)Math.ceil((double)listtotal/onepagelimit);	
 		this.bottomlimit = 10;
 		this.pstartno = pstartno;

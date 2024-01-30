@@ -15,7 +15,11 @@
 
 	<div>
 		<!-- 글작성 start -->
+<<<<<<< HEAD
 		<form action="${pageContext.request.contextPath}/write_notice.hm?user_no=${login.user_no}"
+=======
+		<form action="${pageContext.request.contextPath}/write_notice.hm"
+>>>>>>> branch 'HM' of https://github.com/ljs6570/Green_jobs.git
 			method="post">
 			<fieldset>
 				<legend>게시글을 수정해주세요!</legend>
