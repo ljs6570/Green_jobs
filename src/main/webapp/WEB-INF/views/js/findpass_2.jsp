@@ -51,7 +51,7 @@
     <script>
     	$(function(){
     		$(".btn").on("click", function(){
-    			location.href="go.js";
+    			location.href="login.js";
     		});
     	});
     </script>

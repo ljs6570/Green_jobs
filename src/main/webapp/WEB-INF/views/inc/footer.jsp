@@ -5,7 +5,7 @@
 <!-- Footer -->
 	<footer>
 		<div id="footer">
-			<p>이유빈 이진승 강현민</p>
+			<p>이진승 강현민</p>
 		</div>
 	</footer>
   	
