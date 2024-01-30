@@ -20,7 +20,7 @@
 
 </head>
 <body >
-    <div style="background-color:white ;width: 500px; margin: 20px; padding: 20px; height: 1000px; margin:auto; padding: 50px;">
+    <div style="background-color:white ; outline:none; width: 500px; margin: 20px; padding: 20px; height: 1000px; margin:auto; padding: 50px;">
         <div style="font-size: 30px;">
             <p><a href="login.js">X</a></p>
         </div>

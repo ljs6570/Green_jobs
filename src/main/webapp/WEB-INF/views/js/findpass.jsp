@@ -40,10 +40,10 @@
                 <fieldset>
                     <legend  style="display: none;">비밀번호 찾기</legend>
                     <div>
-                        <input type="text" name="user_name" placeholder="이름" style="font-size: 20px ;border:none; background-color: #fff; border-bottom: 0.5px solid gray ; margin: 10px 20px 10px 20px; height: 50px;">
+                        <input type="text" name="user_name" placeholder="이름" style="font-size: 20px ;border:none; background-color: #fff; border-bottom: 0.5px solid gray ; margin: 10px 20px 10px 20px; height: 50px; outline:none; ">
                     </div>
                     <div>
-                        <input type="text" name="user_email" placeholder="등록된 아이디" style="font-size: 20px ;border:none; background-color: #fff; border-bottom: 0.5px solid gray ; margin: 10px 20px 10px 20px; height: 50px;">
+                        <input type="text" name="user_email" placeholder="등록된 아이디" style="font-size: 20px ;border:none; background-color: #fff; border-bottom: 0.5px solid gray ; margin: 10px 20px 10px 20px; height: 50px; outline:none; ">
                     </div>
                     <div>
                         <input type="submit" class="btn btn-lg" value="다음 단계" style="width: 400px; margin: 100px 0 30px 0;">

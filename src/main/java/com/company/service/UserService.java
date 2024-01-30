@@ -20,5 +20,4 @@ public interface UserService {
 	public int admin_plus(UserDto dto);
 	public int admin_delete(UserDto dto);
 	public int delete_myconetent(UserDto dto);
-	public String random_code();
 }

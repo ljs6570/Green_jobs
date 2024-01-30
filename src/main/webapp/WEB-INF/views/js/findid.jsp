@@ -40,7 +40,7 @@
                 <fieldset>
                     <legend style="display: none;">아이디찾기</legend>
                     <div >
-                        <input type="text" name="user_name" placeholder="이름" style="font-size: 20px ;border:none; background-color: #fff; border-bottom: 0.5px solid gray ; margin: 10px 20px 10px 20px; height: 50px;">
+                        <input type="text" name="user_name" placeholder="이름" style="font-size: 20px ;border:none; background-color: #fff;outline:none;  border-bottom: 0.5px solid gray ; margin: 10px 20px 10px 20px; height: 50px;">
                     </div>
                     <div>
                         <input type="tel" name="user_mobile" placeholder="등록된 휴대번호"  style="font-size: 20px ; border:none; background-color: #fff; outline:none; border-bottom: 0.5px solid gray ; margin: 20px; height: 50px;">

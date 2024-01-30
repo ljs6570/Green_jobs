@@ -127,16 +127,16 @@
 		$.ajax({
 			url:"ex_admin_plus.js",
 			type:"POST",
-			dataType:"json",
+			dataType:"text",
 			data:{"user_email":$("#user_email").val()},
 			error:function(xhr, status, msg){
 				alert(status+"/"+msg);
 				console.log(status+"/"+msg);
 			},
-			success:function(json){
-				alert(json);
+			success:function(text){
+				alert(text);
 				//readAll();
-				console.log(json);
+				console.log(text);
 				$("#user_email").val(''); 
 			}
 			

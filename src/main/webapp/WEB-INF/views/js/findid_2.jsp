@@ -45,7 +45,7 @@
 					<div>
 						<input type="text" name="findid" value="${id.user_email }"
 							readonly
-							style="font-size: 20px; border: none; background-color: #fff; border-bottom: 0.5px solid gray; margin: 10px 20px 10px 20px; height: 50px;">
+							style="font-size: 20px;outline:none;  border: none; background-color: #fff; border-bottom: 0.5px solid gray; margin: 10px 20px 10px 20px; height: 50px;">
 					</div>
 
 					<div class="text-center">
