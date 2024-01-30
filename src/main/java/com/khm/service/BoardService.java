@@ -22,13 +22,11 @@ public interface BoardService {
 	public int queDelete_u(BoardDto bdto);// 문의사항 삭제하기(사용자)
 	
 	public List<BoardVoDto> myQueList(BoardDto bdto);// 내 문의내역
-<<<<<<< HEAD
+
 	public List<MacroDto> macroAnswer();// 내 문의내역
 	public List<BoardDto> noticeList();// 공지사항 리스트
 	public int macroCount();// 공지사항 리스트
-=======
-	public List<BoardDto> noticeList();// 공지사항 리스트
->>>>>>> branch 'HM' of https://github.com/ljs6570/Green_jobs.git
+
 	
 	
 	//관리자

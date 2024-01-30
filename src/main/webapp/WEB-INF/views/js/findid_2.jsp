@@ -36,7 +36,7 @@
 
         </div>
         <div>
-            <form action="go.js" method="get">
+            <form action="login.js" method="get">
                 <fieldset>
                     <legend style="display: none;">아이디찾기</legend>
                     <div >
